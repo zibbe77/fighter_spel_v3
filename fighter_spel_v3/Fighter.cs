@@ -9,5 +9,12 @@ public class Fighter
     public int baseDmg;
     public int speed;
 
-    public string namn = "";
+    public string name = "";
+
+    public Weapon weapon;
+
+    public virtual void Attack(Fighter target)
+    {
+
+    }
 }

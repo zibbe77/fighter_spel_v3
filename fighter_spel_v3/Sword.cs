@@ -7,9 +7,9 @@ public class Sword : Weapon
     {
         maxDamage = 200;
     }
-    
-    public override void Attack(Fighter target)
-    {
-        Console.WriteLine("Swing!");
-    }
+
+    // public override void Attack(Fighter target)
+    // {
+    //     Console.WriteLine("Swing!");
+    // }
 }
