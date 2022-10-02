@@ -12,7 +12,11 @@ public class Player : Fighter
         speed = 10;
 
         weapon = new Sword();
+
         // sätter namn på spelaren 
+        string text = "Skriv namnet på din charatär. Bara bokstäver";
+        Display.Line(text, 0);
+
         while (name == "")
         {
             string value = Console.ReadLine();
@@ -23,7 +27,7 @@ public class Player : Fighter
             }
             else
             {
-                //skriver utt att det inte är ett okej namn
+                Display.Line(text, 0);
             }
         }
     }
@@ -31,14 +35,45 @@ public class Player : Fighter
     //attack metod 
     public override void Attack(Fighter target)
     {
+
         Random generator = new Random();
         int r = generator.Next(weapon.minDamage, weapon.maxDamage);
         int dmg = baseDmg + r;
 
+        //shild
         target.baseShield -= dmg;
-        if (target.baseShield < 0)
+        if (target.baseShield <= 0)
         {
             dmg = (int)MathF.Abs(target.baseShield);
+            target.baseShield = 0;
+        }
+        else
+        {
+            dmg = 0;
+        }
+
+        //armor
+        target.baseArmor -= dmg;
+        if (target.baseArmor <= 0)
+        {
+            dmg = (int)MathF.Abs(target.baseArmor);
+            target.baseArmor = 0;
+        }
+        else
+        {
+            dmg = 0;
+        }
+
+        //hp
+        target.hp -= dmg;
+        if (target.hp <= 0)
+        {
+            dmg = (int)MathF.Abs(target.hp);
+            target.hp = 0;
+        }
+        else
+        {
+            dmg = 0;
         }
 
 
