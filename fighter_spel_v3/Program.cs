@@ -1,7 +1,7 @@
 ﻿using System;
 
 Player p = new Player();
-Logic.GameControler();
+Logic.GameControler(p);
 
 //Enemy e = new Enemy();
 //p.Attack(e);

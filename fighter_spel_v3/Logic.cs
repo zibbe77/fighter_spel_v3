@@ -3,14 +3,14 @@ using System;
 
 public class Logic
 {
-    public static void GameControler()
+    public static void GameControler(Player p)
     {
         Display.Choice();
-        ChoiceBase();
+        ChoiceBase(p);
     }
 
     //hanterar valet om slås eller shop
-    public static void ChoiceBase()
+    public static void ChoiceBase(Player p)
     {
         bool Answer = true;
         while (Answer == true)
@@ -20,7 +20,7 @@ public class Logic
             {
                 case "slåss":
                     Answer = false;
-
+                    FightController.FightTurnController(p);
                     break;
                 case "shop":
                     Answer = false;

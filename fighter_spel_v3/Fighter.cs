@@ -10,6 +10,7 @@ public class Fighter
     public int speed;
 
     public string name = "";
+    public bool isAlive = true;
 
     public Weapon weapon;
 
