@@ -18,4 +18,13 @@ public class Fighter
     {
 
     }
+
+    public void IsAlive()
+    {
+        if (hp == 0)
+        {
+            isAlive = false;
+        }
+    }
 }
+

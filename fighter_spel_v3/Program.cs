@@ -1,7 +1,13 @@
 ﻿using System;
 
 Player p = new Player();
-Logic.GameControler(p);
+
+public static bool exit = true;
+
+while (true)
+{
+    Logic.GameControler(p);
+}
 
 //Enemy e = new Enemy();
 //p.Attack(e);

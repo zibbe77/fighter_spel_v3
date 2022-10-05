@@ -76,7 +76,6 @@ public class Player : Fighter
             dmg = 0;
         }
 
-
         Console.WriteLine("Swing!");
     }
 }
