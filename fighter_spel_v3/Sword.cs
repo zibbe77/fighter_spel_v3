@@ -5,7 +5,9 @@ public class Sword : Weapon
 {
     public Sword()
     {
-        maxDamage = 200;
+        maxDamage = 20;
+        name = "Sword";
+        id = "Sword";
     }
 
     // public override void Attack(Fighter target)

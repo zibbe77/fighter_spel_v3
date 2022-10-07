@@ -5,7 +5,9 @@ public class LongSword : Weapon
 {
     public LongSword()
     {
-        maxDamage = 300;
+        maxDamage = 30;
+        name = "Longsword";
+        id = "LongSword";
     }
 
 

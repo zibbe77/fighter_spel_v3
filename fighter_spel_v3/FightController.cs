@@ -37,11 +37,20 @@ public class FightController
                 Console.WriteLine($"{f.name} är i liv");
             }
 
-            //test 
-            Console.ReadLine();
-
             // skriv stats
             Display.Stats(p);
+
+            // för att se vad som händer 
+            Console.ReadLine();
+
+        }
+        Console.Clear();
+
+        // kollar om du van och belönar
+        if (p.isAlive == true)
+        {
+            p.money += 10;
+            Display.Line("Du fick 10 pengar!!!!", 0);
         }
     }
 

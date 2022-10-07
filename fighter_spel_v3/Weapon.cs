@@ -2,9 +2,10 @@ using System;
 
 public class Weapon
 {
-    public int minDamage = 50;
-    public int maxDamage = 100;
-    public int durabilty;
+    public int minDamage = 10;
+    public int maxDamage = 15;
+    public string name = "Weapon";
+    public string id = "Weapon";
 
 
     // public virtual void Attack(Fighter target)
