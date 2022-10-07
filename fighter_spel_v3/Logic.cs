@@ -54,7 +54,7 @@ public class Logic
         bool loop = true;
         while (loop == true)
         {
-            Display.Line("vill du läka dig Ja/Nej", 0);
+            Display.Line("vill du läka dig Ja/Nej kostar 5", 0);
             string input = Console.ReadLine();
             switch (input.ToLower())
             {
