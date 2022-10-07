@@ -2,7 +2,7 @@ using System;
 
 public class Player : Fighter
 {
-    public int money = 100;
+    public int money = 0;
     public Player()
     {
         maxHp = 20;

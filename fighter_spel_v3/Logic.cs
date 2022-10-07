@@ -51,12 +51,11 @@ public class Logic
 
     public static void Heal(Player p)
     {
-        Display.Line("vill du läka dig Ja/Nej", 0);
-        string input = Console.ReadLine();
-
         bool loop = true;
         while (loop == true)
         {
+            Display.Line("vill du läka dig Ja/Nej", 0);
+            string input = Console.ReadLine();
             switch (input.ToLower())
             {
                 case "ja":
@@ -78,6 +77,7 @@ public class Logic
                         Display.Line($"Du har {p.money} pengar", 0);
                         Display.Enter();
                         Console.ReadLine();
+
                     }
                     break;
                 case "nej":
