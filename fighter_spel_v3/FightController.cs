@@ -34,13 +34,14 @@ public class FightController
                 {
                     controler = false;
                 }
-                Console.WriteLine("hello");
+                Console.WriteLine($"{f.name} är i liv");
             }
 
             //test 
             Console.ReadLine();
 
             // skriv stats
+            Display.Stats(p);
         }
     }
 

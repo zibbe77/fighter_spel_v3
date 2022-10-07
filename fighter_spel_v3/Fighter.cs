@@ -6,6 +6,10 @@ public class Fighter
     public int baseArmor;
     public int baseShield;
 
+    public int maxHp;
+    public int maxBaseArmor;
+    public int maxBaseShield;
+
     public int baseDmg;
     public int speed;
 

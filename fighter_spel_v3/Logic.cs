@@ -7,12 +7,17 @@ public class Logic
     {
         Display.Choice();
         ChoiceBase(p);
+        p.HpReset();
+        p.ShieldReset();
+        p.ArmorReset();
     }
 
     //hanterar valet om slås eller shop
     public static void ChoiceBase(Player p)
     {
+        //avslutar loopen
         bool Answer = true;
+
         while (Answer == true)
         {
             string input = Console.ReadLine();
@@ -25,6 +30,11 @@ public class Logic
                 case "shop":
                     Answer = false;
 
+                    break;
+                case "livs statistik":
+                    Answer = false;
+
+                    Display.Stats(p);
                     break;
                 default:
                     string text = "Fel skriv någon av valen";

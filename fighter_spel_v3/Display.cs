@@ -37,7 +37,18 @@ public class Display
     {
         string text = "Vad vill du göra? Skriv det du vill göra";
         Display.Line(text, 1);
-        string text2 = "Slåss | Shop";
+        string text2 = "Slåss | Shop | livs statistik";
         Display.Line(text2, 0);
+    }
+    public static void Stats(Player p)
+    {
+        string text = "Du tar skade i den årdningen dom skrivs ut";
+        Line(text, 1);
+        string shildText = $"Shild - {p.maxBaseShield} av {p.baseShield} max";
+        Line(shildText, 1);
+        string armorText = $"Armor - {p.maxBaseArmor} av {p.baseArmor} max";
+        Line(armorText, 1);
+        string hpText = $"Hp - {p.hp} av {p.maxHp} max";
+        Line(hpText, 0);
     }
 }

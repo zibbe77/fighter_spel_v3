@@ -2,11 +2,16 @@ using System;
 
 public class Player : Fighter
 {
+    int money = 0;
     public Player()
     {
-        hp = 20;
-        baseArmor = 10;
-        baseShield = 5;
+        maxHp = 20;
+        maxBaseArmor = 10;
+        maxBaseShield = 5;
+
+        HpReset();
+        ShieldReset();
+        ArmorReset();
 
         baseDmg = 15;
         speed = 10;
@@ -35,7 +40,6 @@ public class Player : Fighter
     //attack metod 
     public override void Attack(Fighter target)
     {
-
         Random generator = new Random();
         int r = generator.Next(weapon.minDamage, weapon.maxDamage);
         int dmg = baseDmg + r;
@@ -76,6 +80,22 @@ public class Player : Fighter
             dmg = 0;
         }
 
-        Console.WriteLine("Swing!");
+        Console.WriteLine($"{name} attackerade {target.name}");
+    }
+
+    // återställer hp 
+    public void HpReset()
+    {
+        hp = maxHp;
+    }
+    // återställer armor 
+    public void ArmorReset()
+    {
+        baseArmor = maxBaseArmor;
+    }
+    // åtterställer shield 
+    public void ShieldReset()
+    {
+        baseShield = maxBaseShield;
     }
 }
