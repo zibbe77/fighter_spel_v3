@@ -2,14 +2,18 @@ using System;
 
 public class Weapon
 {
-    public int minDamage = 10;
-    public int maxDamage = 15;
-    public string name = "Weapon";
-    public string id = "Weapon";
+    public int MinDamage { get; set; }
+    public int MaxDamage { get; set; }
+    public string Name { get; set; }
+    public string Id { get; set; }
+    public int Cost { get; set; }
 
+    public Weapon()
+    {
+        MinDamage = 10;
+        MaxDamage = 15;
+        Name = "Weapon";
+        Id = "Weapon";
 
-    // public virtual void Attack(Fighter target)
-    // {
-    //     Console.WriteLine("Attack!");
-    // }
+    }
 }

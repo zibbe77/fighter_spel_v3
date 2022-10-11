@@ -2,7 +2,7 @@
 
 Player p = new Player();
 
-while (p.isAlive == true)
+while (p.IsAlive == true)
 {
     Logic.GameControler(p);
 }

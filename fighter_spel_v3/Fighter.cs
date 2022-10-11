@@ -2,32 +2,38 @@ using System;
 
 public class Fighter
 {
-    public int hp;
-    public int baseArmor;
-    public int baseShield;
+    public int Hp { get; set; }
+    public int BaseArmor { get; set; }
+    public int BaseShield { get; set; }
 
-    public int maxHp;
-    public int maxBaseArmor;
-    public int maxBaseShield;
+    public int MaxHp { get; set; }
+    public int MaxBaseArmor { get; set; }
+    public int MaxBaseShield { get; set; }
 
-    public int baseDmg;
-    public int speed;
+    public int BaseDmg { get; set; }
+    public int Speed { get; set; }
 
-    public string name = "";
-    public bool isAlive = true;
+    public string Name { get; set; }
+    public bool IsAlive { get; set; }
 
     public Weapon weapon;
+
+    public Fighter()
+    {
+        Name = "";
+        IsAlive = true;
+    }
 
     public virtual void Attack(Fighter target)
     {
 
     }
 
-    public void IsAlive()
+    public void IsItAlive()
     {
-        if (hp == 0)
+        if (Hp == 0)
         {
-            isAlive = false;
+            IsAlive = false;
         }
     }
 }

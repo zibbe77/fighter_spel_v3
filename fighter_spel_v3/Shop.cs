@@ -10,7 +10,7 @@ public class Shop
         weapons.Add(lSword);
         weapons.Add(sword);
 
-        WeaponListDisplay(weapons);
+        WeaponListDisplay(weapons, p);
 
         // kolar svaret
         bool noAnswer = true;
@@ -22,28 +22,31 @@ public class Shop
 
             foreach (Weapon w in weapons)
             {
-                if (p.money > 10)
+                if (input == w.Name.ToLower())
                 {
-                    if (input == w.name.ToLower())
+                    if (p.money > w.Cost)
                     {
                         p.weapon = w;
                         noAnswer = false;
-                        p.money -= 10;
+                        p.money -= w.Cost;
 
                         Console.Clear();
-                        Display.Line($"Du fick {w.name}", 0);
+                        Display.Line($"Du fick {w.Name}", 1);
                         Display.Line($"Du har {p.money} pengar", 0);
                         Display.Enter();
                     }
+                    else
+                    {
+                        noAnswer = false;
+                        Display.Line("Du har inte nog pengar", 1);
+                        Display.Line($"Du har {p.money} pengar", 1);
+                        Display.Line($"Det kostar {w.Cost} pengar", 0);
+                        Display.Enter();
+                        Console.ReadLine();
+                        Console.Clear();
+                    }
                 }
-                else
-                {
-                    noAnswer = false;
-                    Display.Line("Du har inte nog pengar", 0);
-                    Display.Line($"Du har {p.money} pengar", 0);
-                    Display.Enter();
-                    Console.ReadLine();
-                }
+
             }
             if (input == "tillbaka")
             {
@@ -53,21 +56,24 @@ public class Shop
             if (noAnswer == true)
             {
                 string text = "Fel skriv någon av valen";
-                WeaponListDisplay(weapons);
+                WeaponListDisplay(weapons, p);
                 Display.Line(text, 0);
             }
         }
     }
-    public static void WeaponListDisplay(List<Weapon> weapons)
+
+    // skriver utt information av shopen till spelaren 
+    public static void WeaponListDisplay(List<Weapon> weapons, Player p)
     {
         //skriver utt dmg och namn på vad du kan köpa
         Display.Line("Vapen du kan köpa", 1);
+        Display.Line($"Du har {p.money}", 1);
 
         foreach (Weapon w in weapons)
         {
             System.Console.WriteLine("----------------------------------------------------");
-            System.Console.WriteLine(w.name);
-            System.Console.WriteLine($"{w.minDamage} minmum {w.maxDamage} maximum dmg");
+            System.Console.WriteLine(w.Name);
+            System.Console.WriteLine($"{w.MinDamage} minmum {w.MaxDamage} maximum dmg - kostar {w.Cost}");
         }
         System.Console.WriteLine("----------------------------------------------------");
         System.Console.WriteLine("tillbaka");

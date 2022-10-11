@@ -5,16 +5,16 @@ public class Player : Fighter
     public int money = 0;
     public Player()
     {
-        maxHp = 20;
-        maxBaseArmor = 10;
-        maxBaseShield = 5;
+        MaxHp = 20;
+        MaxBaseArmor = 10;
+        MaxBaseShield = 5;
 
         HpReset();
         ShieldReset();
         ArmorReset();
 
-        baseDmg = 15;
-        speed = 10;
+        BaseDmg = 15;
+        Speed = 10;
 
         weapon = new Sword();
 
@@ -22,13 +22,13 @@ public class Player : Fighter
         string text = "Skriv namnet på din charatär. Bara bokstäver";
         Display.Line(text, 0);
 
-        while (name == "")
+        while (Name == "")
         {
             string value = Console.ReadLine();
 
             if (value != "" && value.All(char.IsLetter))
             {
-                name = value;
+                Name = value;
             }
             else
             {
@@ -41,15 +41,15 @@ public class Player : Fighter
     public override void Attack(Fighter target)
     {
         Random generator = new Random();
-        int r = generator.Next(weapon.minDamage, weapon.maxDamage);
-        int dmg = baseDmg + r;
+        int r = generator.Next(weapon.MinDamage, weapon.MaxDamage);
+        int dmg = BaseDmg + r;
 
         //shild
-        target.baseShield -= dmg;
-        if (target.baseShield <= 0)
+        target.BaseShield -= dmg;
+        if (target.BaseShield <= 0)
         {
-            dmg = (int)MathF.Abs(target.baseShield);
-            target.baseShield = 0;
+            dmg = (int)MathF.Abs(target.BaseShield);
+            target.BaseShield = 0;
         }
         else
         {
@@ -57,11 +57,11 @@ public class Player : Fighter
         }
 
         //armor
-        target.baseArmor -= dmg;
-        if (target.baseArmor <= 0)
+        target.BaseArmor -= dmg;
+        if (target.BaseArmor <= 0)
         {
-            dmg = (int)MathF.Abs(target.baseArmor);
-            target.baseArmor = 0;
+            dmg = (int)MathF.Abs(target.BaseArmor);
+            target.BaseArmor = 0;
         }
         else
         {
@@ -69,33 +69,33 @@ public class Player : Fighter
         }
 
         //hp
-        target.hp -= dmg;
-        if (target.hp <= 0)
+        target.Hp -= dmg;
+        if (target.Hp <= 0)
         {
-            dmg = (int)MathF.Abs(target.hp);
-            target.hp = 0;
+            dmg = (int)MathF.Abs(target.Hp);
+            target.Hp = 0;
         }
         else
         {
             dmg = 0;
         }
 
-        Console.WriteLine($"{name} attackerade {target.name}");
+        Console.WriteLine($"{Name} attackerade {target.Name}");
     }
 
     // återställer hp 
     public void HpReset()
     {
-        hp = maxHp;
+        Hp = MaxHp;
     }
     // återställer armor 
     public void ArmorReset()
     {
-        baseArmor = maxBaseArmor;
+        BaseArmor = MaxBaseArmor;
     }
     // åtterställer shield 
     public void ShieldReset()
     {
-        baseShield = maxBaseShield;
+        BaseShield = MaxBaseShield;
     }
 }

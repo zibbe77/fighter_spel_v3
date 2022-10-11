@@ -4,12 +4,12 @@ public class Enemy : Fighter
 {
     public Enemy()
     {
-        hp = 20;
-        baseArmor = 10;
-        baseShield = 5;
+        Hp = 20;
+        BaseArmor = 10;
+        BaseShield = 5;
 
-        baseDmg = 15;
-        speed = 10;
+        BaseDmg = 15;
+        Speed = 10;
 
         weapon = new Sword();
     }
@@ -18,15 +18,15 @@ public class Enemy : Fighter
     public override void Attack(Fighter target)
     {
         Random generator = new Random();
-        int r = generator.Next(weapon.minDamage, weapon.maxDamage);
-        int dmg = baseDmg + r / 2;
+        int r = generator.Next(weapon.MinDamage, weapon.MaxDamage);
+        int dmg = BaseDmg + r / 2;
 
         //shild
-        target.baseShield -= dmg;
-        if (target.baseShield <= 0)
+        target.BaseShield -= dmg;
+        if (target.BaseShield <= 0)
         {
-            dmg = (int)MathF.Abs(target.baseShield);
-            target.baseShield = 0;
+            dmg = (int)MathF.Abs(target.BaseShield);
+            target.BaseShield = 0;
         }
         else
         {
@@ -34,11 +34,11 @@ public class Enemy : Fighter
         }
 
         //armor
-        target.baseArmor -= dmg;
-        if (target.baseArmor <= 0)
+        target.BaseArmor -= dmg;
+        if (target.BaseArmor <= 0)
         {
-            dmg = (int)MathF.Abs(target.baseArmor);
-            target.baseArmor = 0;
+            dmg = (int)MathF.Abs(target.BaseArmor);
+            target.BaseArmor = 0;
         }
         else
         {
@@ -46,18 +46,18 @@ public class Enemy : Fighter
         }
 
         //hp
-        target.hp -= dmg;
-        if (target.hp <= 0)
+        target.Hp -= dmg;
+        if (target.Hp <= 0)
         {
-            dmg = (int)MathF.Abs(target.hp);
-            target.hp = 0;
+            dmg = (int)MathF.Abs(target.Hp);
+            target.Hp = 0;
         }
         else
         {
             dmg = 0;
         }
 
-        Console.WriteLine($"{name} attackerade {target.name}");
+        Console.WriteLine($"{Name} attackerade {target.Name}");
     }
 }
 

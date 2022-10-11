@@ -18,10 +18,10 @@ public class FightController
         {
             //kola om det fungerar med fler om. Borde inte fungera.
             turnOrder[0].Attack(turnOrder[1]);
-            turnOrder[1].IsAlive();
+            turnOrder[1].IsItAlive();
 
             //kollar om den ska in i tur igen 
-            if (turnOrder[0].isAlive == true)
+            if (turnOrder[0].IsAlive == true)
             {
                 turnOrder.Add(turnOrder[0]);
             }
@@ -30,11 +30,11 @@ public class FightController
             //kollar om loopen ska avslutas 
             foreach (Fighter f in turnOrder)
             {
-                if (f.isAlive == false)
+                if (f.IsAlive == false)
                 {
                     controler = false;
                 }
-                Console.WriteLine($"{f.name} är i liv");
+                Console.WriteLine($"{f.Name} är i liv");
             }
 
             // skriv stats
@@ -47,7 +47,7 @@ public class FightController
         Console.Clear();
 
         // kollar om du van och belönar
-        if (p.isAlive == true)
+        if (p.IsAlive == true)
         {
             p.money += 10;
             Display.Line("Du fick 10 pengar!!!!", 0);

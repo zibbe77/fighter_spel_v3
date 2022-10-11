@@ -44,11 +44,11 @@ public class Display
     {
         string text = "Du tar skade i den årdningen dom skrivs ut";
         Line(text, 1);
-        string shildText = $"Shild - {p.baseShield} av {p.maxBaseShield} max";
+        string shildText = $"Shild - {p.BaseShield} av {p.MaxBaseShield} max";
         Line(shildText, 1);
-        string armorText = $"Armor - {p.baseArmor} av {p.maxBaseArmor} max";
+        string armorText = $"Armor - {p.BaseArmor} av {p.MaxBaseArmor} max";
         Line(armorText, 1);
-        string hpText = $"Hp - {p.hp} av {p.maxHp} max";
+        string hpText = $"Hp - {p.Hp} av {p.MaxHp} max";
         Line(hpText, 0);
         Enter();
     }
